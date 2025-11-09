@@ -1,0 +1,30 @@
+[project]
+name = "raw-hyde-grpo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pyyaml>=6.0.3",
+    "sentence-transformers>=5.1.2",
+    "tensorboard>=2.20.0",
+    "transformers>=4.57.1",
+    "trl>=0.25.0",
+]
+
+[project.optional-dependencies]
+cu128 = [
+    "torch",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu128", marker = "extra == 'cu128'" },
+]
+
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
